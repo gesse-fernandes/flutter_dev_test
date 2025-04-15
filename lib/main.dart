@@ -1,25 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dev_test/app.dart';
+import 'package:flutter_dev_test/injection.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _initializeApp();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dev Flutter Test',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('good luck =]'),
-        ),
-      ),
-    );
-  }
+Future<void> _initializeApp() async {
+  init();
 }
